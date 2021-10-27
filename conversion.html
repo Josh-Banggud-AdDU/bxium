@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+    <title>Conversion</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+        <div>
+            <div class="w3-top">
+                <div class="w3-bar w3-black w3-card">
+                    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+                    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+                    <a href="#ftoc" class="w3-bar-item w3-button w3-padding-large w3-hide-small">FAHRENHEIT TO CELSIUS</a>
+                    <a href="#ctof" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CELSIUS TO FAHRENHEIT</a>
+                    <a href="#mtoft" class="w3-bar-item w3-button w3-padding-large w3-hide-small">METERS TO FEET</a>
+                    <a href="#fttom" class="w3-bar-item w3-button w3-padding-large w3-hide-small">FEET TO METERS</a>
+
+                    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+                </div>
+            </div>
+
+                <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+                <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+                    <a href="#ftoc" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">F TO C</a>
+                    <a href="#ctof" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">C TO F</a>
+                    <a href="#mtoft" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">M TO FT</a>
+                    <a href="#fttom" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">FT TO M</a>
+                </div>
+        </div>
+        <hr style="max-width:80%">
+        <div class="w3-content" style="max-width:2000px;margin-top:52px;margin-left:23px" id="ftoc">
+            <h2 class="w3-wide">Fahrenheit to Celsius</h2>
+            <div class="w3-container">
+                <p><label for="f1">Fahrenheit</label></p>
+                <input id="f1" class="w3-input w3-border" type="number" placeholder="-">
+                <p><label for="c1">Celsius</label></p>
+                <input id="c1" class="w3-input w3-border" type="number" placeholder="-" readonly>
+                <button id="button" name="button" onclick="ftoc()" class="w3-button w3-black w3-section">Convert</i></button>
+            </div>
+        </div>
+        <div class="w3-content" style="max-width:2000px;margin-top:52px;margin-left:23px" id="ctof">
+            <h2 class="w3-wide">Celsius to Fahrenheit</h2>
+            <div class="w3-container">
+                <p><label for="c2">Celsius</label></p>
+                <input id="c2" class="w3-input w3-border" type="number" placeholder="-">
+                <p><label for="f2">Fahrenheit</label></p>
+                <input id="f2" class="w3-input w3-border" type="number" placeholder="-" readonly>
+                <button id="button" name="button" onclick="ctof()" class="w3-button w3-black w3-section">Convert</i></button>
+            </div>
+        </div>
+        <div class="w3-content" style="max-width:2000px;margin-top:52px;margin-left:23px" id="mtoft">
+            <h2 class="w3-wide">Meters to Feet</h2>
+            <div class="w3-container">
+                <p><label for="m1">Meters</label></p>
+                <input id="m1" class="w3-input w3-border" type="number" placeholder="-">
+                <p><label for="ft1">Feet</label></p>
+                <input id="ft1" class="w3-input w3-border" type="number" placeholder="-" readonly>
+                <button id="button" name="button" onclick="mtoft()" class="w3-button w3-black w3-section">Convert</i></button>
+            </div>
+        </div>
+        <div class="w3-content" style="max-width:2000px;margin-top:52px;margin-left:23px" id="fttom">
+            <h2 class="w3-wide">Feet to Meters</h2>
+            <div class="w3-container">
+                <p><label for="ft2">Feet</label></p>
+                <input id="ft2" class="w3-input w3-border" type="number" placeholder="-">
+                <p><label for="m2">Meters</label></p>
+                <input id="m2" class="w3-input w3-border" type="number" placeholder="-" readonly>
+                <button id="button" name="button" onclick="fttom()" class="w3-button w3-black w3-section">Convert</i></button>
+            </div>
+        </div>
+        <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+            <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>
+    </body>
+
+    <script>
+        function fttom(){
+            var m, ft;
+            if(document.getElementById("ft2").value == ""){
+                document.getElementById("m2").value = "";
+            }else{
+                ft = document.getElementById("ft2").value*1;
+                m = ft/3.28084
+                document.getElementById("m2").value = m;
+            }
+        }
+        function mtoft(){
+            var m, ft;
+            if(document.getElementById("m1").value == ""){
+                document.getElementById("ft1").value = "";
+            }else{
+                m = document.getElementById("m1").value*1;
+                ft = m*3.28084
+                document.getElementById("ft1").value = ft;
+            }
+        }
+        function ctof(){
+            var f, c;
+            if(document.getElementById("c2").value == ""){
+                document.getElementById("f2").value = "";
+            }else{
+                c = document.getElementById("c2").value*1;
+                f = (c*9/5)+32;
+                document.getElementById("f2").value = f;
+            }
+        }
+        function ftoc(){
+            var f, c;
+            if(document.getElementById("f1").value == ""){
+                document.getElementById("c1").value = "";
+            }else{
+                f = document.getElementById("f1").value*1;
+                c = (f-32)*5/9;
+                document.getElementById("c1").value = c;
+            }
+        }
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else { 
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+</html>

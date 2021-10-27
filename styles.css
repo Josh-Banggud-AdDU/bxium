@@ -1,0 +1,28 @@
+/* Place your CSS styles in this file */
+
+h1 {
+    text-align: left;
+    font-family: Garamond, serif;
+    font-weight: normal;
+}
+h2{
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+h3{
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+}
+p{
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+}
+.mySlides {
+    display: none;
+}
+.shadow{
+    text-shadow: 2px 2px 2px black, 0 0 10px black;
+}

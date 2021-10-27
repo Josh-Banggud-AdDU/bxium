@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Home Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="#me" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROFILE</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">ACTIVITY <i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="conversion.html" class="w3-bar-item w3-button">Activity 1: Conversion</a>
+        <a href="#" class="w3-bar-item w3-button">Activity 2: Income Tax Calculator</a>
+        <a href="#" class="w3-bar-item w3-button">Activity 3: Factorial, Sum & Average of First N Natural Numbers</a>
+        <a href="#" class="w3-bar-item w3-button">Activity 4: Simple Payroll</a>
+      </div>
+    </div>
+    
+    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+  </div>
+</div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="#me" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROFILE</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ACTIVITY</a>
+</div>
+
+<!-- Main content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+  <!-- Automatic Slideshow Images -->
+  <div class="mySlides w3-display-container w3-center">
+    <img src="pic2.png" style="width:100%">
+    <div class="shadow w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Activity 1: Conversion</h3>
+      <p>Write a JavaScript program that will ask for input values and converts it into different temperature and distance units.</p>   
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="pic3.png" style="width:100%">
+    <div class="shadow w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Activity 2: Income Tax Calculator</h3>
+      <p>Write a JavaScript program that accepts taxable income and computes the income tax using the given tax rates.</p>    
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="pic4.png" style="width:100%">
+    <div class="shadow w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Activity 3: Factorial, Sum & Average of First N Natural Numbers</h3>
+      <p>Write a Javascript program that will input an integer value n and display its factorial, summation, and average.</p>    
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="pic5.png" style="width:100%">
+    <div class="shadow w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Activity 4: Simple Payroll</h3>
+      <p>Write a JavaScript program to add and delete employees in a payroll list.</p>    
+    </div>
+  </div>
+
+  <!-- Profile Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="me">
+    <h2 class="w3-wide">JOSH ELIZALDE BANGGUD</h2>
+    <p class="w3-opacity"><i>4-301<i></p>
+    <p class="w3-justify">I am Josh Elizalde A. Banggud of class CompSc 1-A, and I am a strong-willed and persevering individual, especially
+      when it comes to learning computer programming. I am currently 17 years old, turning 18 years of age this December 3, 2003. Apart from
+       that, my interests include digital illustrations and game development. I find it relaxing to stay in bed with a warm cup of coffee during
+       light rainy seasons. But enough about me, this website is a compilation of my activities for JavaScript in my Introduction to Computing 
+       subject.
+    </p>
+    </div>
+  </div>
+   
+<!-- End Page Content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+<script>
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 4000);    
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+</script>
+
+</body>
+</html>
