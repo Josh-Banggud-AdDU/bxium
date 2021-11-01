@@ -31,8 +31,16 @@
 
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#me" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROFILE</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ACTIVITY</a>
+    <a href="#me" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROFILE</a>
+    <div class="w3-dropdown-hover w3-mobile">
+      <button class="w3-padding-large w3-button" title="More">ACTIVITY <i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="conversion.html" class="w3-bar-item w3-button">Activity 1: Conversion</a>
+        <a href="incomeTax.html" class="w3-bar-item w3-button">Activity 2: Income Tax Calculator</a>
+        <a href="#" class="w3-bar-item w3-button">Activity 3: Factorial, Sum & Average of First N Natural Numbers</a>
+        <a href="#" class="w3-bar-item w3-button">Activity 4: Simple Payroll</a>
+      </div>
+    </div>
 </div>
 
 <!-- Main content -->
@@ -119,7 +127,6 @@ function myFunction() {
     x.className = x.className.replace(" w3-show", "");
   }
 }
-
 </script>
 
 </body>
