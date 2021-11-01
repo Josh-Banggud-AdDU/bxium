@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+    <title>Income Tax Calculator</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+        <div>
+            <div class="w3-top">
+                <div class="w3-bar w3-black w3-card">
+                    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">BACK</a>                    
+                </div>
+            </div>
+        </div>
+        <hr style="max-width:80%">
+        <div class="w3-content" style="max-width:2000px;margin-top:52px;margin-left:23px" id="itc">
+            <h2 class="w3-wide">Income Tax Calculator</h2>
+            <div class="w3-container">
+                <p><label for="ti">Taxable Income</label></p>
+                <input id="ti" class="w3-input w3-border" type="number" placeholder="-">
+                <p><label for="it">Income Tax</label></p>
+                    <input id="it" class="w3-input w3-border" type="text" placeholder="-" readonly>
+                    <button id="button" name="button" onclick="itc()" class="w3-button w3-black w3-section">Compute</i></button>
+                    <button id="reset" name="reset" onclick="reset()" class="w3-button w3-black w3-section">Clear</i></button>
+                </div>
+            </div>
+       
+        <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+            <a href="https://www.facebook.com/blox.x.xium"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+            <a href="https://www.youtube.com/channel/UCKYe_-Qx9GKm2kZfFStz3TQ"><i class="fa fa-youtube-play w3-hover-opacity"></i></a>
+            <a href="https://twitter.com/BXium"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+            <a href="https://www.linkedin.com/in/josh-elizalde-banggud"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+            <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>   
+    </body>
+
+    <script>
+        function itc(){
+            var taxableIncome, incomeTax;
+            function comma(incomeTax){
+                var str = incomeTax.toString().split(".");
+                str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                return str.join(".");
+            }
+            if(document.getElementById("ti").value == ""){
+                document.getElementById("it").value = "";
+            }else{
+                taxableIncome = document.getElementById("ti").value*1;
+                if(taxableIncome <= 250000){
+                    incomeTax = 0.00;
+                }else if(taxableIncome > 250000 && taxableIncome <= 400000){
+                    incomeTax = (taxableIncome-250000)*0.2;
+                }else if(taxableIncome > 400000 && taxableIncome <= 800000){
+                    incomeTax = (taxableIncome-400000)*0.25+30000;
+                }else if(taxableIncome > 800000 && taxableIncome <= 2000000){
+                    incomeTax = (taxableIncome-800000)*0.3+130000;
+                }else if(taxableIncome > 2000000 && taxableIncome <= 8000000){
+                    incomeTax = (taxableIncome-2000000)*0.32+490000;
+                }else if(taxableIncome > 8000000){
+                    incomeTax = (taxableIncome-8000000)*0.35+2410000;
+                }
+                incomeTax = incomeTax.toFixed(2);
+                incomeTax = comma(incomeTax);
+                document.getElementById("it").value = incomeTax;
+            }
+        }
+        function reset(){
+            document.getElementById("ti").value = "";
+            document.getElementById("it").value = "";
+        }
+    </script>
+</html>
