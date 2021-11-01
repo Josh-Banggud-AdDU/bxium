@@ -35,7 +35,7 @@
                 <p><label for="f1">Fahrenheit</label></p>
                 <input id="f1" class="w3-input w3-border" type="number" placeholder="-">
                 <p><label for="c1">Celsius</label></p>
-                    <input id="c1" class="w3-input w3-border" type="number" placeholder="-" readonly>
+                    <input id="c1" class="w3-input w3-border" type="text" placeholder="-" readonly>
                     <button id="button" name="button" onclick="ftoc()" class="w3-button w3-black w3-section">Convert</i></button>
                     <button id="reset1" name="reset1" onclick="reset1()" class="w3-button w3-black w3-section">Clear</i></button>
                 </div>
@@ -46,7 +46,7 @@
                 <p><label for="c2">Celsius</label></p>
                 <input id="c2" class="w3-input w3-border" type="number" placeholder="-">
                 <p><label for="f2">Fahrenheit</label></p>
-                <input id="f2" class="w3-input w3-border" type="number" placeholder="-" readonly>
+                <input id="f2" class="w3-input w3-border" type="text" placeholder="-" readonly>
                 <button id="button" name="button" onclick="ctof()" class="w3-button w3-black w3-section">Convert</i></button>
                 <button id="reset2" name="reset2" onclick="reset2()" class="w3-button w3-black w3-section">Clear</i></button>
             </div>
@@ -57,7 +57,7 @@
                 <p><label for="m1">Meters</label></p>
                 <input id="m1" class="w3-input w3-border" type="number" placeholder="-">
                 <p><label for="ft1">Feet</label></p>
-                <input id="ft1" class="w3-input w3-border" type="number" placeholder="-" readonly>
+                <input id="ft1" class="w3-input w3-border" type="text" placeholder="-" readonly>
                 <button id="button" name="button" onclick="mtoft()" class="w3-button w3-black w3-section">Convert</i></button>
                 <button id="reset" name="reset3" onclick="reset3()" class="w3-button w3-black w3-section">Clear</i></button>
             </div>
@@ -68,7 +68,7 @@
                 <p><label for="ft2">Feet</label></p>
                 <input id="ft2" class="w3-input w3-border" type="number" placeholder="-">
                 <p><label for="m2">Meters</label></p>
-                <input id="m2" class="w3-input w3-border" type="number" placeholder="-" readonly>
+                <input id="m2" class="w3-input w3-border" type="text" placeholder="-" readonly>
                 <button id="button" name="button" onclick="fttom()" class="w3-button w3-black w3-section">Convert</i></button>
                 <button id="reset4" name="reset4" onclick="reset4()" class="w3-button w3-black w3-section">Clear</i></button>
             </div>
@@ -89,7 +89,9 @@
                 document.getElementById("m2").value = "";
             }else{
                 ft = document.getElementById("ft2").value*1;
-                m = ft/3.28084
+                m = ft/3.28084;
+                m = m.toFixed(4);
+                m = m + " m";
                 document.getElementById("m2").value = m;
             }
         }
@@ -100,6 +102,8 @@
             }else{
                 m = document.getElementById("m1").value*1;
                 ft = m*3.28084
+                ft = ft.toFixed(4);
+                ft = ft + " ft";
                 document.getElementById("ft1").value = ft;
             }
         }
@@ -110,6 +114,8 @@
             }else{
                 c = document.getElementById("c2").value*1;
                 f = (c*9/5)+32;
+                f = f.toFixed(1);
+                f = f + " °F";
                 document.getElementById("f2").value = f;
             }
         }
@@ -120,6 +126,8 @@
             }else{
                 f = document.getElementById("f1").value*1;
                 c = (f-32)*5/9;
+                c = c.toFixed(2);
+                c = c + " °C";
                 document.getElementById("c1").value = c;
             }
         }
