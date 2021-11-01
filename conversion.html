@@ -12,7 +12,7 @@
             <div class="w3-top">
                 <div class="w3-bar w3-black w3-card">
                     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-                    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+                    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">BACK</a>
                     <a href="#ftoc" class="w3-bar-item w3-button w3-padding-large w3-hide-small">FAHRENHEIT TO CELSIUS</a>
                     <a href="#ctof" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CELSIUS TO FAHRENHEIT</a>
                     <a href="#mtoft" class="w3-bar-item w3-button w3-padding-large w3-hide-small">METERS TO FEET</a>
@@ -37,10 +37,11 @@
                 <p><label for="f1">Fahrenheit</label></p>
                 <input id="f1" class="w3-input w3-border" type="number" placeholder="-">
                 <p><label for="c1">Celsius</label></p>
-                <input id="c1" class="w3-input w3-border" type="number" placeholder="-" readonly>
-                <button id="button" name="button" onclick="ftoc()" class="w3-button w3-black w3-section">Convert</i></button>
+                    <input id="c1" class="w3-input w3-border" type="number" placeholder="-" readonly>
+                    <button id="button" name="button" onclick="ftoc()" class="w3-button w3-black w3-section">Convert</i></button>
+                    <button id="reset1" name="reset1" onclick="reset1()" class="w3-button w3-black w3-section">Clear</i></button>
+                </div>
             </div>
-        </div>
         <div class="w3-content" style="max-width:2000px;margin-top:52px;margin-left:23px" id="ctof">
             <h2 class="w3-wide">Celsius to Fahrenheit</h2>
             <div class="w3-container">
@@ -49,6 +50,7 @@
                 <p><label for="f2">Fahrenheit</label></p>
                 <input id="f2" class="w3-input w3-border" type="number" placeholder="-" readonly>
                 <button id="button" name="button" onclick="ctof()" class="w3-button w3-black w3-section">Convert</i></button>
+                <button id="reset2" name="reset2" onclick="reset2()" class="w3-button w3-black w3-section">Clear</i></button>
             </div>
         </div>
         <div class="w3-content" style="max-width:2000px;margin-top:52px;margin-left:23px" id="mtoft">
@@ -59,6 +61,7 @@
                 <p><label for="ft1">Feet</label></p>
                 <input id="ft1" class="w3-input w3-border" type="number" placeholder="-" readonly>
                 <button id="button" name="button" onclick="mtoft()" class="w3-button w3-black w3-section">Convert</i></button>
+                <button id="reset" name="reset3" onclick="reset3()" class="w3-button w3-black w3-section">Clear</i></button>
             </div>
         </div>
         <div class="w3-content" style="max-width:2000px;margin-top:52px;margin-left:23px" id="fttom">
@@ -69,6 +72,7 @@
                 <p><label for="m2">Meters</label></p>
                 <input id="m2" class="w3-input w3-border" type="number" placeholder="-" readonly>
                 <button id="button" name="button" onclick="fttom()" class="w3-button w3-black w3-section">Convert</i></button>
+                <button id="reset4" name="reset4" onclick="reset4()" class="w3-button w3-black w3-section">Clear</i></button>
             </div>
         </div>
         <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
@@ -122,6 +126,22 @@
                 c = (f-32)*5/9;
                 document.getElementById("c1").value = c;
             }
+        }
+        function reset1(){
+            document.getElementById("f1").value = "";
+            document.getElementById("c1").value = "";
+        }
+        function reset2(){
+            document.getElementById("f2").value = "";
+            document.getElementById("c2").value = "";
+        }
+        function reset3(){
+            document.getElementById("m1").value = "";
+            document.getElementById("ft1").value = "";
+        }
+        function reset4(){
+            document.getElementById("m2").value = "";
+            document.getElementById("ft2").value = "";
         }
         function myFunction() {
             var x = document.getElementById("navDemo");
