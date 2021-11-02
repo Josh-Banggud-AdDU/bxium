@@ -140,11 +140,12 @@
         }
         function removeList(){
             var entryNum;
-
-            entryNum=document.getElementById("delNum").value;
-            employees.splice(entryNum-1,1);
-            document.getElementById("delNum").value="";
-            displayPayroll();   
+            if(document.getElementById("delNum").value != ""){
+                entryNum=document.getElementById("delNum").value;
+                employees.splice(entryNum-1,1);
+                document.getElementById("delNum").value="";
+                displayPayroll();   
+            }
         }
         function clearList(){
             createTable();
