@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+    <title>Conversion</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        table, th, td{
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-weight: 300;
+        }
+        #empList table{
+            width:100%;
+            text-align:center;
+            border-spacing: 0 10px;
+            border:1px solid #ddd;
+        }
+        #empList th{
+            font-weight:800;
+        }
+        #x span, #ok button{
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            color:white;
+        }
+        body{
+            min-height:100vh;
+        }
+        .footer{
+            position:sticky;
+            top:100%;
+        } 
+    </style>
+    <body onload="createTable()">
+        <div>
+            <div class="w3-top">
+                <div class="w3-bar w3-black w3-card">
+                    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">BACK</a>
+                </div>
+            </div>
+        </div>
+        <hr style="max-width:80%">
+        <div class="w3-content page-content" style="max-width:2000px;margin-top:52px;margin-left:23px;margin-bottom:20px" id="ftoc">
+            <h2 class="w3-wide">Simple Payroll</h2>
+                <div class="w3-container">
+                    <table style="width:100%;text-align:left;border-spacing: 0 10px">
+                        <tr>
+                            <th style="width:35%"><label for="en">Employee Name</label></th>
+                            <th style="width:15%"><label for="dw">Days Worked</label></th>
+                            <th style="width:25%"><label for="dr">Daily Rate</label></th>
+                            <th style="width:25%"><label for="da">Deduction Amount</label></th>
+                        </tr>
+                        <tr>
+                            <td><input id="en" class="w3-input w3-border" type="text" placeholder="-"></td>
+                            <td><input id="dw" class="w3-input w3-border" type="number" placeholder="-"></td>
+                            <td><input id="dr" class="w3-input w3-border" type="number" placeholder="-"></td>
+                            <td><input id="da" class="w3-input w3-border" type="number" placeholder="-"></td>
+                        </tr>
+                    </table>
+                    <button id="atl" name="atl" onclick="addList()" class="w3-button w3-black w3-section">Add to List</button>
+                    <button id="rfl" name="rfl" onclick="document.getElementById('removeElementConfirmation').style.display='block'" class="w3-button w3-black w3-section">Remove from List</button>
+                    <button id="ctl" name="ctl" onclick="document.getElementById('clearListConfirmation').style.display='block'" class="w3-button w3-black w3-section">Clear the List</button>
+                    <button id="ctl" name="c" onclick="clearInput()" class="w3-button w3-red w3-section"><i class="fa fa-remove"></i></button>
+                    <div id="removeElementConfirmation" class="w3-modal" style="display:none">
+                        <div class="w3-modal-content w3-animate-top w3-card-4" style="width:50%">
+                            <header class="w3-container w3-center w3-padding-32 w3-black">
+                                <span id="x" onclick="document.getElementById('removeElementConfirmation').style.display='none'" class="w3-button w3-display-topright">x</span>
+                                <h2>Remove from List</h2>
+                            </header>
+                            <div class="w3-container">
+                                <p>Enter Line Number</p>
+                                <input id="delNum"class="w3-input w3-border" type="number" placeholder="Which Entry to Remove?">
+                                <button id="ok" class="w3-button w3-black w3-padding-16 w3-section" onclick="removeList()">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="clearListConfirmation" class="w3-modal" style="display:none">
+                        <div class="w3-modal-content w3-animate-top w3-card-4" style="width:40%">
+                            <header class="w3-container w3-center w3-padding-32 w3-black">
+                                <span id="x" onclick="document.getElementById('clearListConfirmation').style.display='none'" class="w3-button w3-display-topright">x</span>
+                                <h2>Clear All</h2>
+                            </header>
+                            <div class="w3-container">
+                                <button id="ok" class="w3-button w3-black w3-block w3-padding-16 w3-section" onclick="clearList()">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="empList"></p>
+                </div>
+        </div>
+        <footer class="footer">
+            <div class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+                <a href="https://www.facebook.com/blox.x.xium"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+                <a href="https://www.youtube.com/channel/UCKYe_-Qx9GKm2kZfFStz3TQ"><i class="fa fa-youtube-play w3-hover-opacity"></i></a>
+                <a href="https://twitter.com/BXium"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+                <a href="https://www.linkedin.com/in/josh-elizalde-banggud"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+                <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+            </div>
+        </footer>
+    </body>
+    <script>
+        var employees = [];
+        function createTable(){
+            employees=[];
+        }
+        function addList(){
+            var employeeList = {
+                name:"",
+                daysWorked:0,
+                dailyRate:0,
+                grossPay: function grossPay(){
+                    return Math.round(this.daysWorked*this.dailyRate);  
+                },  
+                deductionAmount:0,
+                netPay: function netPay(){
+                    return Math.round((this.daysWorked*this.dailyRate)-this.deductionAmount);
+                }
+            };
+            if(document.getElementById("en").value != "" && document.getElementById("dw").value != "" && document.getElementById("dr").value != "" && document.getElementById("da").value != ""){
+                employeeList.name=document.getElementById("en").value;
+                employeeList.daysWorked=document.getElementById("dw").value;
+                employeeList.dailyRate=document.getElementById("dr").value;
+                employeeList.deductionAmount=document.getElementById("da").value;
+
+                employees.push(employeeList);
+
+                displayPayroll();
+                clearInput();
+            }
+        }
+        function clearInput(){
+            document.getElementById("en").value = "";
+            document.getElementById("dw").value = "";
+            document.getElementById("dr").value = "";
+            document.getElementById("da").value = "";
+        }
+        function removeList(){
+            var entryNum;
+
+            entryNum=document.getElementById("delNum").value;
+            employees.splice(entryNum-1,1);
+            document.getElementById("delNum").value="";
+            displayPayroll();   
+        }
+        function clearList(){
+            createTable();
+            displayPayroll();
+            document.getElementById("clearListConfirmation").style.display="none";
+        }
+        function displayPayroll(){
+            var a, number, theader, tbody, i;
+            a = employees.length;
+            
+            theader ="<thead>";
+            theader+="<tr>";
+            theader+="<th>No.</th>";
+            theader+='<th style="text-align:left">Employee Name</th>';
+            theader+='<th style="text-align:left">Days Worked</th>';
+            theader+='<th style="text-align:left">Daily Rate</th>';
+            theader+='<th style="text-align:left">Gross Pay</th>';
+            theader+='<th style="text-align:left">Deduction Amount</th>';
+            theader+='<th style="text-align:left">Net Pay</th>';
+            theader+="</tr>";
+            theader+="</thead>";
+            
+            for(i=0, tbody=''; i<a; i++){
+                number = i+1;
+                tbody += "<tr>"
+                    +'<td>'+number+'</td>'
+                    +'<td style="text-align:left">'+employees[i].name+' </td>'
+                    +'<td style="text-align:left">'+employees[i].daysWorked+'</td>'
+                    +'<td style="text-align:left">'+employees[i].dailyRate+'</td>'
+                    +'<td style="text-align:left">'+employees[i].grossPay()+'</td>'
+                    +'<td style="text-align:left">'+employees[i].deductionAmount+'</td>'
+                    +'<td style="text-align:left">'+employees[i].netPay()+'</td>'
+                    +"</tr>";
+            }
+            document.getElementById("empList").innerHTML = "<table>"+theader+tbody+"</table>";
+        }
+    </script>
+</html>
